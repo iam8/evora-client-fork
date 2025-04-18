@@ -41,10 +41,10 @@ function OnOff({initialized, setInitialized}) {
             <legend>
               Startup
             </legend>
-            <button disabled={initialized} onClick={onInitialize}>
+            <button className="onoff" disabled={initialized} onClick={onInitialize}>
                 { initializing ? "Initializing ..." : "Initialize" }
             </button>
-            <button disabled={!initialized} onClick={onShutdown}>
+            <button className="onoff" disabled={!initialized} onClick={onShutdown}>
                 { shuttingDown ? "Shutting Down ..." : "Shut Down" }
             </button>
             {failure && <p>Initialization failed (Is the server running?)</p>}

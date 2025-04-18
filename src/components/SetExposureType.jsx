@@ -12,25 +12,27 @@ function ExposureTypeSelector({exposureType, setExposureType, isDisabled}) {
           <legend>
               Exposure Type
           </legend>
-          <label> Single
+          <label className="custom-radio">
               <input type='radio' name='ImageType' onChange={GetExposureTypeClicked} value='Single' 
               checked={
                 exposureType === 'Single'
               }/>
+              <span>Single</span>
           </label>
-          <label> Real Time
+          <label className="custom-radio">
               <input type='radio' name='ImageType' onChange={GetExposureTypeClicked} value='Real Time'
               checked={
                 exposureType === 'Real Time'
               }/>
+              <span>Real Time</span>
           </label>
-          <label> Series
+          <label className="custom-radio">
               <input type='radio' name='ImageType' onChange={GetExposureTypeClicked} value='Series'
               checked={
                 exposureType === 'Series'
               }/>
+              <span>Series</span>
           </label>
-          
       </fieldset>
     );
   }

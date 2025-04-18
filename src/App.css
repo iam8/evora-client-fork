@@ -1,31 +1,77 @@
 /*
- * Styles for the frontend
+ * General styles for the frontend components
  */
 
- .App {
-  text-align: center;
+* {
+  margin: 0;
+  /* overflow: hidden; */
 }
 
-.Interface {
-  display: grid;
-  grid-auto-flow: column;
-  margin: 1% 5% 1% 5%;
+html {
+  font-size: 23px;
+}
+
+body {
+  overflow: hidden;
+  /* background: linear-gradient(45deg, rgb(78, 76, 160) 5%, rgb(35, 17, 65) 20%, rgb(53, 32, 90) 50%, rgb(35, 17, 65) 80%, rgb(78, 76, 160) 95%); */
+  background: #0a0a0a;
+  color: white;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding-bottom: 8vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button:hover:enabled {
+  background-color: #444;
+}
+
+fieldset legend {
+  text-align: left;
+}
+
+fieldset.filter > label,button  {
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+fieldset {
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding:12px;
+  background-color: #1e1e1e;
+}
+
+.warning {
+  color: red;
+}
+
+.interface {
+  margin: 0 auto;
+  width: 100%;
+  height: 95%;
   padding: 10px;
-  height: 90vh;
+  font-family: Inter;
+  display: flex;
+  justify-content: space-evenly;
 }
 
-.Controls {
-  margin-left: 5%;
-  width: 80%;
-  overflow-y: auto;
+.controls {
+  width: 50%;
+  font-size: 15px;
 }
 
 .display {
-  overflow: hidden;
+  width: 45%;
+  margin-top: 50px;
 }
 
 .exposure-controls label {
-  display:block;
+  display: block;
   margin: 8px;
 }
 
@@ -91,25 +137,6 @@
   margin: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.Logo {
-  height: 75px;
-  width: 75px;
-  border-radius: 35px;
-  margin: 1% 3% 3% 3%;
-}
-
-.WeatherIcon {
-  height: 75px;
-  width: 75px;
-  border-radius: 35px;
-  margin: 1% 3% 3% 3%;
-}
-
 .blink {
   margin-top: 20px;
   animation: blinker 2s linear infinite;
@@ -130,36 +157,10 @@
   transition: width 1s ease;
 }
 
-@keyframes blinker {
-  50% {
-    opacity: 0;
-  }
-}
-
-body {
-  background: linear-gradient(45deg, rgb(78, 76, 160) 5%, rgb(35, 17, 65) 20%, rgb(53, 32, 90) 50%, rgb(35, 17, 65) 80%, rgb(78, 76, 160) 95%);
-  color: white;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  padding-bottom: 8vh;
-}
-
-
-
 .display div {
   margin: auto;
 }
 
-fieldset.filter > label,button  {
-  margin-left: 10px;
-  border-radius: 5px;
-}
-
-fieldset {
-  border: 1px solid;
-  border-radius: 5px;
-  background-color: rgb(41, 37, 37);
-}
 .graphContainer {
   width: 80%;
   margin: 0 auto;
@@ -227,8 +228,14 @@ fieldset {
   }
 }
 
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
 .framing input {
-  margin: 7.5px 2.5px;
+  margin: 15px 10px;
 }
 
 .framing button {
@@ -236,7 +243,7 @@ fieldset {
 }
 
 .focus input {
-  margin: 10px 7.5px;
+  margin: 20px 15px;
 }
 
 .focus button {
@@ -245,6 +252,10 @@ fieldset {
 
 .focus label {
   margin-left: 10px;
+}
+
+.framing, .focus {
+  padding: 20px;
 }
 
 input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
@@ -263,4 +274,118 @@ input[type=number] {
 .headerCommentField {
   width: 300px;
   max-width: 30%;
+}
+
+.onoff {
+  background-color: #333;
+  color: #e0e0e0;
+  padding: 10px 10px;
+  border:none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.stat_button {
+  background-color: #333;
+  color: #e0e0e0;
+  padding: 10px 10px;
+  border:none;
+  transition: opacity 0.3s, color 0.3s;
+  font-family: Inter;
+}
+
+.custom-radio {
+  margin: 2px;
+}
+
+.custom-radio span {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #333;
+  border-radius: 6px;
+  margin: 3px;
+  color: #e0e0e0;
+  transition: background-color 0.3s, color 0.3s;
+  font-family: Inter;
+}
+
+.custom-radio input[type="radio"] {
+  display: none;
+}
+
+.custom-radio input[type="radio"]:checked + span {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.custom-radio input[type="radio"]:disabled + span, button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+  color: #888;
+}
+
+.custom-radio span:hover {
+  background-color: #444;
+}
+
+.filter-button {
+  background-color: #333;
+  color: #e0e0e0;
+  padding: 11.5px 10px;
+  border:none;
+  transition: opacity 0.3s, color 0.3s;
+  font-family: Inter;
+}
+
+.temp-set {
+  background-color: #333;
+  color: #e0e0e0;
+  padding: 5px 5px;
+  border:none;
+  transition: opacity 0.3s, color 0.3s;
+  font-family: Inter;
+}
+
+.weather-info > p:first-child {
+  padding-top: 10px;
+}
+
+.weather-info > p {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.weather-info > p > span {
+  font-weight: bold;
+}
+
+.logContainer {
+  border-radius: 5px;
+  overflow-y: scroll;
+  height: 90%;
+  width: 95%;
+  margin: 0 auto;
+  background-color: #1e1e1e;
+}
+
+.logContainer > p {
+  font-size: 13px;
+  padding: 5px;
+  text-align: left;
+}
+
+.logContainer > p:first-child {
+  padding-top: 10px;
+}
+
+.fsBtn {
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.fsBtn:hover {
+  background-color: #00c01a !important;
+}
+
+.minusFocusButton {
+  margin-right: 10px;
 }

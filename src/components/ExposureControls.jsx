@@ -7,7 +7,8 @@ import {useEffect, useState} from "react"
  * Fields for submitting exposure request including header comment, exposure time, number of exposures, and
  * extra displays for successful exposures.
  */
-function ExposureControls({ exposureType, imageType, filterType, setDisplayedImage, setDisableControls, isDisabled}) {
+function ExposureControls({ exposureType, imageType, filterType, setDisplayedImage,
+                            setDisableControls, isDisabled, currTimer, setCurrTimer }) {
 
     const [playing, setPlaying] = useState(false)
     const [audio] = useState(new Audio(process.env.PUBLIC_URL + '/tadaa-47995.mp3'))
@@ -24,7 +25,7 @@ function ExposureControls({ exposureType, imageType, filterType, setDisplayedIma
 
     // For timer/loading bar
     const [time, setTime] = useState(undefined);  // progress bar progress
-    const [currTimer, setCurrTimer] = useState(undefined);
+    // const [currTimer, setCurrTimer] = useState(undefined);
     const [endTime, setEndTime] = useState(null);  // Timer accuracy
 
     function formatTime(seconds) {
@@ -182,6 +183,7 @@ function ExposureControls({ exposureType, imageType, filterType, setDisplayedIma
     return (
         <form onSubmit={handleSubmit(onSubmit)} className='exposure-controls'>
             <fieldset disabled={isDisabled}>
+
             <legend>
                 Exposure Controls
             </legend>
@@ -253,8 +255,8 @@ function ExposureControls({ exposureType, imageType, filterType, setDisplayedIma
             )}
 
             {/* Get Exposure Button */}
-            <button disabled={isExposing} onClick={() => {setSeriesExposures([]); setStopRealTime(false)}} type='submit'>Get Exposure</button>
-            {(exposureType !== "Real Time" && <button disabled={!isExposing} onClick={abortExposure}>Abort Exposure</button>)}
+            <button className="temp-set" disabled={isExposing} onClick={() => {setSeriesExposures([]); setStopRealTime(false)}} type='submit'>Get Exposure</button>
+            {(exposureType !== "Real Time" && <button className="temp-set" disabled={!isExposing} onClick={abortExposure}>Abort Exposure</button>)}
 
             </fieldset>
         </form>
